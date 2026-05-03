@@ -1,94 +1,137 @@
-# Mini application : Gestionnaire de tâches en Python
+# TP — Créer une mini application Python avec Claude Code
 
-Fonctions :
+Dans ce TP, nous allons créer une petite application graphique en Python avec **Tkinter**.
+L’objectif est double :
+
+1. construire une mini application simple ;
+2. apprendre à utiliser les **slash commands** de Claude Code.
+
+À la fin du TP, vous saurez utiliser :
 
 ```text
-1. Ajouter une tâche
-2. Marquer une tâche comme terminée
-3. Supprimer une tâche
-4. Afficher les tâches dans une liste
+/help
+/init
+/plan
+/diff
+/context
+/compact
+/permissions
 ```
 
-On va utiliser **Claude Code** pour construire l’application étape par étape avec les slash commands.
+Vous allez aussi créer vos propres commandes personnalisées :
 
-Les slash commands sont des commandes qui commencent par `/` dans Claude Code. Tu peux taper simplement `/` pour voir les commandes disponibles, et une commande doit être placée au début du message pour être reconnue. Certaines commandes peuvent varier selon la plateforme, le plan et l’environnement. ([Claude][1])
+```text
+/python-feature
+/explain-python
+```
 
 ---
 
-# Étape 1 — Créer le dossier du projet
+# 1. Création du dossier du projet
 
-Dans le terminal :
+Commencez par ouvrir votre terminal.
+
+Créez un nouveau dossier :
 
 ```bash
 mkdir mini-app-python-claude
+```
+
+Entrez dans ce dossier :
+
+```bash
 cd mini-app-python-claude
 ```
 
-Créer un fichier vide :
+Créez maintenant le fichier principal de l’application :
 
 ```bash
 touch main.py
 ```
 
-Sur Windows PowerShell :
+Sur Windows PowerShell, utilisez plutôt :
 
 ```powershell
 New-Item main.py
 ```
 
+À ce stade, votre projet contient simplement un fichier vide :
+
+```text
+mini-app-python-claude/
+└── main.py
+```
+
 ---
 
-# Étape 2 — Ouvrir Claude Code dans ce dossier
+# 2. Ouverture du projet avec Claude Code
 
-Toujours dans le dossier :
+Dans le même dossier, lancez Claude Code :
 
 ```bash
 claude
 ```
 
-Tu arrives dans Claude Code.
+Vous êtes maintenant dans une session Claude Code.
+
+Claude Code va nous aider à lire, modifier et améliorer notre projet Python.
 
 ---
 
-# Étape 3 — Afficher les commandes disponibles
+# 3. Première commande : `/help`
 
-Dans Claude Code, tape :
+Dans Claude Code, tapez :
 
 ```text
 /help
 ```
 
-Cette commande affiche l’aide et les commandes disponibles. La documentation officielle indique aussi que `/help` sert à montrer l’aide et les commandes disponibles. ([Claude][1])
+Cette commande permet d’afficher l’aide de Claude Code.
 
-Ensuite tape seulement :
+Elle sert à comprendre quelles commandes sont disponibles dans votre environnement.
+
+Retenez ceci :
+
+```text
+Les slash commands sont des commandes spéciales qui commencent par /.
+Elles servent à contrôler Claude Code.
+```
+
+---
+
+# 4. Afficher la liste des commandes disponibles
+
+Tapez simplement :
 
 ```text
 /
 ```
 
-L’objectif est de montrer aux étudiants que Claude Code propose une liste de commandes.
+Claude Code affiche alors une liste de commandes disponibles.
 
-Tu peux leur dire :
-
-```text
-Dans Claude Code, les slash commands servent à contrôler la session.
-Ce ne sont pas des commandes Python.
-Ce sont des commandes pour piloter Claude Code.
-```
+C’est une bonne habitude à prendre : quand vous ne savez plus quelle commande utiliser, tapez simplement `/`.
 
 ---
 
-# Étape 4 — Initialiser le projet avec `/init`
+# 5. Initialiser le projet avec `/init`
 
-Dans Claude Code :
+Nous allons maintenant initialiser le projet.
+
+Dans Claude Code, tapez :
 
 ```text
 /init
 ```
 
-Cette commande initialise le projet avec un fichier `CLAUDE.md`, qui sert de guide pour Claude Code. ([Claude][1])
+Cette commande crée généralement un fichier important :
 
-Ensuite, écris à Claude Code :
+```text
+CLAUDE.md
+```
+
+Ce fichier sert à donner des instructions permanentes à Claude Code pour ce projet.
+
+Maintenant, demandez à Claude Code d’améliorer ce fichier :
 
 ```text
 Améliore le fichier CLAUDE.md pour ce projet.
@@ -97,7 +140,7 @@ Contexte :
 - C’est une mini application Python pour étudiants débutants.
 - L’application utilise Tkinter.
 - Le fichier principal est main.py.
-- Le code doit être simple, lisible et commenté.
+- Le code doit rester simple, lisible et commenté.
 - Ne pas utiliser de framework web.
 - Ne pas utiliser React.
 - Ne pas ajouter de dépendances externes.
@@ -106,120 +149,129 @@ Contexte :
 
 ---
 
-# Étape 5 — Demander un plan avec `/plan`
+# 6. Demander un plan avec `/plan`
 
-Avant de coder, on demande à Claude de réfléchir.
+Avant de demander à Claude Code de coder, nous allons lui demander de réfléchir.
 
-Dans Claude Code :
+Dans Claude Code, tapez :
 
 ```text
 /plan créer une mini application Python Tkinter pour gérer une liste de tâches
 ```
 
-La commande `/plan` permet d’entrer directement en mode plan avec une description de tâche. ([Claude][1])
+Le but est d’obtenir un plan avant la génération du code.
 
-Claude devrait proposer quelque chose comme :
+Un bon plan pourrait ressembler à ceci :
 
 ```text
 1. Créer une fenêtre Tkinter
 2. Ajouter un champ de saisie
 3. Ajouter un bouton Ajouter
-4. Ajouter une liste de tâches
-5. Ajouter un bouton Terminer
-6. Ajouter un bouton Supprimer
+4. Ajouter une liste pour afficher les tâches
+5. Ajouter un bouton pour marquer une tâche comme terminée
+6. Ajouter un bouton pour supprimer une tâche
 ```
 
-Tu expliques aux étudiants :
-
-```text
-On ne demande pas directement à l’IA de coder.
+C’est une bonne pratique : on ne demande pas directement à l’IA de coder.
 On lui demande d’abord un plan.
-C’est une bonne pratique professionnelle.
-```
 
 ---
 
-# Étape 6 — Demander à Claude Code de créer la version 1
+# 7. Créer la première version de l’application
 
-Dans Claude Code, écris exactement :
+Maintenant, demandez à Claude Code de créer la première version.
+
+Copiez-collez ce message dans Claude Code :
 
 ```text
 Crée la version 1 de l’application dans main.py.
 
 Contraintes :
 - Utilise Python avec Tkinter.
-- Une seule fenêtre principale.
-- Un champ Entry pour écrire une tâche.
-- Un bouton Ajouter.
-- Une Listbox pour afficher les tâches.
-- Un bouton Marquer comme terminée.
-- Un bouton Supprimer.
-- Code simple pour débutants.
+- Crée une seule fenêtre principale.
+- Ajoute un champ Entry pour écrire une tâche.
+- Ajoute un bouton Ajouter.
+- Ajoute une Listbox pour afficher les tâches.
+- Ajoute un bouton Marquer comme terminée.
+- Ajoute un bouton Supprimer.
+- Garde le code simple pour débutants.
 - Ajoute des commentaires dans le code.
 - Ne crée pas plusieurs fichiers pour l’instant.
 ```
 
-Claude Code va modifier `main.py`.
+Claude Code va modifier le fichier :
+
+```text
+main.py
+```
 
 ---
 
-# Étape 7 — Vérifier les changements avec `/diff`
+# 8. Vérifier les modifications avec `/diff`
 
-Après la modification, tape :
+Après la modification, ne lancez pas immédiatement le programme.
+
+Commencez par vérifier ce que Claude Code a changé.
+
+Dans Claude Code, tapez :
 
 ```text
 /diff
 ```
 
-La commande `/diff` ouvre un visualiseur qui montre les changements non commités et les modifications faites pendant les tours Claude. ([Claude][1])
+Cette commande affiche les modifications faites dans les fichiers.
 
-Phrase importante à dire aux étudiants :
+C’est une étape importante.
+
+Retenez cette règle :
 
 ```text
-On ne fait jamais confiance aveuglément à l’IA.
-On vérifie toujours ce qu’elle a modifié avec /diff.
+On ne fait jamais confiance aveuglément à une IA.
+On vérifie toujours les modifications avec /diff.
 ```
 
 ---
 
-# Étape 8 — Tester l’application
+# 9. Tester l’application Python
 
-Quitte ou garde Claude Code ouvert, puis dans le terminal normal :
+Dans le terminal, lancez l’application :
 
 ```bash
 python main.py
 ```
 
-Sur certains systèmes :
+Sur certains systèmes, utilisez :
 
 ```bash
 python3 main.py
 ```
 
-Une fenêtre doit s’ouvrir.
+Une fenêtre graphique doit s’ouvrir.
 
-Teste :
+Testez maintenant les actions suivantes :
 
 ```text
-1. Écrire : Acheter du lait
-2. Cliquer sur Ajouter
-3. Sélectionner la tâche
-4. Cliquer sur Marquer comme terminée
-5. Cliquer sur Supprimer
+1. Écrivez une tâche dans le champ.
+2. Cliquez sur Ajouter.
+3. Sélectionnez la tâche.
+4. Cliquez sur Marquer comme terminée.
+5. Sélectionnez une tâche.
+6. Cliquez sur Supprimer.
 ```
+
+Si tout fonctionne, vous avez créé votre première mini application Python avec Claude Code.
 
 ---
 
-# Code attendu pour main.py
+# 10. Code attendu pour `main.py`
 
-Voici une version simple que Claude Code pourrait produire :
+Votre fichier peut ressembler à ceci :
 
 ```python
 import tkinter as tk
 from tkinter import messagebox
 
 
-# Fonction pour ajouter une tâche
 def ajouter_tache():
     texte = entree_tache.get()
 
@@ -231,7 +283,6 @@ def ajouter_tache():
     entree_tache.delete(0, tk.END)
 
 
-# Fonction pour marquer une tâche comme terminée
 def terminer_tache():
     selection = liste_taches.curselection()
 
@@ -247,7 +298,6 @@ def terminer_tache():
         liste_taches.insert(index, "[Terminée] " + tache)
 
 
-# Fonction pour supprimer une tâche
 def supprimer_tache():
     selection = liste_taches.curselection()
 
@@ -259,12 +309,10 @@ def supprimer_tache():
     liste_taches.delete(index)
 
 
-# Création de la fenêtre principale
 fenetre = tk.Tk()
 fenetre.title("Mini Gestionnaire de Tâches")
 fenetre.geometry("500x400")
 
-# Titre
 titre = tk.Label(
     fenetre,
     text="Gestionnaire de tâches",
@@ -272,11 +320,9 @@ titre = tk.Label(
 )
 titre.pack(pady=10)
 
-# Champ de saisie
 entree_tache = tk.Entry(fenetre, width=40, font=("Arial", 12))
 entree_tache.pack(pady=10)
 
-# Bouton Ajouter
 bouton_ajouter = tk.Button(
     fenetre,
     text="Ajouter",
@@ -285,11 +331,9 @@ bouton_ajouter = tk.Button(
 )
 bouton_ajouter.pack(pady=5)
 
-# Liste des tâches
 liste_taches = tk.Listbox(fenetre, width=50, height=10, font=("Arial", 12))
 liste_taches.pack(pady=10)
 
-# Bouton Terminer
 bouton_terminer = tk.Button(
     fenetre,
     text="Marquer comme terminée",
@@ -298,7 +342,6 @@ bouton_terminer = tk.Button(
 )
 bouton_terminer.pack(pady=5)
 
-# Bouton Supprimer
 bouton_supprimer = tk.Button(
     fenetre,
     text="Supprimer",
@@ -307,23 +350,26 @@ bouton_supprimer = tk.Button(
 )
 bouton_supprimer.pack(pady=5)
 
-# Lancement de l'application
 fenetre.mainloop()
 ```
 
 ---
 
-# Étape 9 — Demander une amélioration avec `/plan`
+# 11. Ajouter une amélioration avec `/plan`
 
-Maintenant, on ajoute une amélioration : sauvegarder les tâches dans un fichier.
+Nous allons maintenant améliorer l’application.
 
-Dans Claude Code :
+Objectif : sauvegarder les tâches dans un fichier JSON.
+
+Dans Claude Code, tapez :
 
 ```text
 /plan ajouter une sauvegarde des tâches dans un fichier JSON
 ```
 
-Puis :
+Attendez que Claude Code propose un plan.
+
+Ensuite, demandez :
 
 ```text
 Ajoute une sauvegarde automatique des tâches dans un fichier tasks.json.
@@ -338,111 +384,108 @@ Contraintes :
 
 ---
 
-# Étape 10 — Vérifier encore avec `/diff`
+# 12. Vérifier encore avec `/diff`
 
-Après modification :
+Après cette amélioration, tapez encore :
 
 ```text
 /diff
 ```
 
-Tu montres aux étudiants :
+Observez les changements.
+
+Claude Code devrait avoir ajouté des éléments comme :
 
 ```text
-Claude a probablement ajouté :
-- import json
-- une fonction sauvegarder_taches()
-- une fonction charger_taches()
-- un fichier tasks.json
+import json
+sauvegarder_taches()
+charger_taches()
+tasks.json
 ```
 
 ---
 
-# Étape 11 — Utiliser `/context`
+# 13. Surveiller le contexte avec `/context`
 
-Après plusieurs échanges :
+Après plusieurs échanges avec Claude Code, tapez :
 
 ```text
 /context
 ```
 
-La commande `/context` permet de visualiser l’utilisation du contexte et donne des suggestions d’optimisation. ([Claude][1])
+Cette commande permet de voir l’utilisation du contexte.
 
-Explication simple :
-
-```text
-Plus la conversation devient longue, plus Claude garde beaucoup d’informations.
-La commande /context permet de voir si la session devient lourde.
-```
+Plus une conversation est longue, plus Claude Code garde d’informations en mémoire.
+La commande `/context` permet de vérifier si la session devient trop lourde.
 
 ---
 
-# Étape 12 — Utiliser `/compact`
+# 14. Résumer la session avec `/compact`
 
-Quand la conversation devient longue :
+Quand la session devient longue, tapez :
 
 ```text
 /compact Garde seulement l’état actuel du projet, les fichiers modifiés, les décisions importantes et les prochaines étapes.
 ```
 
-La commande `/compact` libère du contexte en résumant la conversation, avec des instructions optionnelles. ([Claude][1])
+Cette commande permet de résumer la conversation et de continuer plus proprement.
 
-Explication aux étudiants :
+Retenez ceci :
 
 ```text
-/compact permet de nettoyer la conversation sans perdre l’essentiel.
+/context permet de voir l’état du contexte.
+/compact permet de le résumer pour continuer plus efficacement.
 ```
 
 ---
 
-# Étape 13 — Montrer `/permissions`
+# 15. Contrôler les permissions avec `/permissions`
 
-Dans Claude Code :
+Dans Claude Code, tapez :
 
 ```text
 /permissions
 ```
 
-Cette commande permet de gérer les règles d’autorisation, de demande de confirmation et de refus pour les outils utilisés par Claude Code. ([Claude][2])
+Cette commande permet de contrôler ce que Claude Code peut faire.
 
-Tu peux dire :
+Par exemple :
 
 ```text
-Claude Code peut lire des fichiers, modifier du code et exécuter certaines commandes.
-Donc il faut contrôler ce qu’il a le droit de faire.
+- lire des fichiers
+- modifier des fichiers
+- exécuter certaines commandes
 ```
+
+C’est important, parce que Claude Code peut agir directement sur votre projet.
 
 ---
 
-# Étape 14 — Créer une slash command personnalisée pour Python
+# 16. Créer une commande personnalisée : `/python-feature`
 
-Maintenant, on crée notre propre commande :
-
-```text
-/python-feature
-```
+Nous allons maintenant créer notre propre slash command.
 
 Elle servira à ajouter une fonctionnalité Python proprement.
 
-Dans le terminal :
+Dans le terminal, créez le dossier :
 
 ```bash
 mkdir -p .claude/skills/python-feature
 ```
 
-Créer le fichier :
+Créez ensuite ce fichier :
 
 ```bash
 nano .claude/skills/python-feature/SKILL.md
 ```
 
-Sur Windows, tu peux créer le fichier manuellement dans VS Code :
+Sur Windows, créez manuellement ce fichier dans VS Code :
 
 ```text
 .claude/skills/python-feature/SKILL.md
 ```
 
-Contenu du fichier :
+Ajoutez ce contenu :
 
 ```markdown
 ---
@@ -467,31 +510,35 @@ Méthode obligatoire :
 8. Donner la commande pour tester l’application.
 ```
 
-Les skills Claude Code se créent avec un fichier `SKILL.md`, et le nom du dossier peut devenir une commande slash invocable directement, par exemple `/python-feature`. ([Claude][3])
-
-Ensuite, dans Claude Code :
+Maintenant, dans Claude Code, utilisez votre commande :
 
 ```text
 /python-feature ajouter un bouton qui efface toutes les tâches
 ```
 
+Claude Code va comprendre que `/python-feature` est une commande personnalisée.
+
 ---
 
-# Étape 15 — Créer une deuxième commande personnalisée : `/explain-python`
+# 17. Créer une commande personnalisée : `/explain-python`
 
-Créer le dossier :
+Nous allons créer une deuxième commande.
+
+Elle servira à expliquer du code Python ligne par ligne.
+
+Créez le dossier :
 
 ```bash
 mkdir -p .claude/skills/explain-python
 ```
 
-Créer :
+Créez le fichier :
 
 ```bash
 nano .claude/skills/explain-python/SKILL.md
 ```
 
-Contenu :
+Ajoutez ce contenu :
 
 ```markdown
 ---
@@ -515,7 +562,7 @@ Structure obligatoire :
 7. Résumé final très simple.
 ```
 
-Utilisation :
+Utilisez ensuite la commande :
 
 ```text
 /explain-python main.py
@@ -523,15 +570,17 @@ Utilisation :
 
 ---
 
-# Étape 16 — Résumé du TP pour tes étudiants
+# 18. Résumé final
 
-À la fin, les étudiants doivent connaître ces commandes :
+Dans ce TP, vous avez appris à utiliser Claude Code pour construire une application Python simple.
+
+Vous avez utilisé les commandes suivantes :
 
 ```text
 /help
 ```
 
-Voir l’aide.
+Afficher l’aide.
 
 ```text
 /
@@ -543,7 +592,7 @@ Voir les commandes disponibles.
 /init
 ```
 
-Créer le guide du projet `CLAUDE.md`.
+Initialiser le projet avec `CLAUDE.md`.
 
 ```text
 /plan
@@ -555,7 +604,7 @@ Demander un plan avant de coder.
 /diff
 ```
 
-Vérifier les modifications faites par Claude.
+Vérifier les modifications.
 
 ```text
 /context
@@ -567,47 +616,27 @@ Voir l’utilisation du contexte.
 /compact
 ```
 
-Résumer la conversation pour continuer proprement.
+Résumer une longue session.
 
 ```text
 /permissions
 ```
 
-Contrôler les droits de Claude Code.
+Contrôler ce que Claude Code peut faire.
+
+Vous avez aussi créé deux commandes personnalisées :
 
 ```text
 /python-feature
-```
-
-Commande personnalisée pour ajouter une fonctionnalité Python.
-
-```text
 /explain-python
 ```
 
-Commande personnalisée pour expliquer du code Python.
-
----
-
-# Version orale simple pour ton cours
-
-Tu peux présenter ça comme ça :
+L’idée essentielle à retenir est simple :
 
 ```text
-Aujourd’hui, on ne va pas juste coder une application Python.
-On va apprendre à travailler avec Claude Code comme un assistant de développement.
-
-On va utiliser :
-/init pour préparer le projet,
-/plan pour réfléchir avant de coder,
-/diff pour vérifier les changements,
-/context pour surveiller la mémoire de la session,
-/compact pour résumer quand la conversation devient longue,
-/permissions pour contrôler ce que Claude peut faire.
-
-Puis on va créer nos propres commandes :
-/python-feature pour ajouter une fonctionnalité,
-/explain-python pour expliquer le code.
+Claude Code ne sert pas seulement à générer du code.
+Il sert à piloter un vrai processus de développement :
+planifier, coder, vérifier, améliorer et expliquer.
 ```
 
 
