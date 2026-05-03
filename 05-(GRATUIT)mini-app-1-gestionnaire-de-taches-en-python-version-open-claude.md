@@ -1,11 +1,3 @@
-Oui. Je reprends **tout le tutoriel depuis zéro**, en version beaucoup plus détaillée, comme un vrai TP complet prêt à donner à vos étudiants.
-
-Je vais écrire comme si **je suis le professeur devant la classe**.
-
-Important : dans ce tutoriel, j’utilise **OpenClaude** comme équivalent gratuit/open source de Claude Code, mais je précise toujours les différences. OpenClaude est un agent de code en ligne de commande open source qui peut utiliser des modèles locaux ou cloud, notamment Ollama, Gemini, GitHub Models ou des APIs compatibles OpenAI. Il propose un workflow terminal avec outils de fichiers, agents, MCP, slash commands et sortie en streaming. ([GitHub][1])
-
----
-
 # TP complet — Créer une mini application Python avec OpenClaude gratuit
 
 ## Objectif général du TP
